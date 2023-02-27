@@ -9,7 +9,7 @@ use InvalidArgumentException;
  */
 class NextSmallerNumber
 {
-    protected array $dataset = [];
+    protected array $dataset;
 
     public function __construct(array $dataset)
     {
@@ -25,11 +25,11 @@ class NextSmallerNumber
             }
         });
 
-        // Sort dataset
-        sort($dataset);
-
-        // Save dataset
+        // Copy dataset, because we will sort it and don't want to change original dataset
         $this->dataset = $dataset;
+
+        // Sort dataset
+        sort($this->dataset);
     }
 
     /**
@@ -147,3 +147,4 @@ class NextSmallerNumber
         return null;
     }
 }
+

@@ -88,6 +88,9 @@ class NextSmallerNumberTest extends TestCase
         // Let's check min value
         $this->assertEquals(-1, $instance->$methodName($min));
 
+        // Prepare sorted dataset for test
+        sort($dataset);
+
         // Let's check tail
         for ($i = 1, $iMax = count(self::DATASET); $i < $iMax; $i++) {
             $valid = self::DATASET[$i - 1] === self::DATASET[$i] ? $valid ?? -1 : self::DATASET[$i - 1];
